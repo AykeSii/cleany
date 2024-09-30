@@ -1,45 +1,57 @@
-import React from 'react';
-import { FaUserCircle } from 'react-icons/fa'; // Importing React-icons for user profile icon
-import '../Css/Profil.css'; // Assuming the CSS file is stored in the 'Css' folder
+import React, { useState } from 'react';
+import { FaUserCircle } from 'react-icons/fa';
+import { FaArrowLeft } from "react-icons/fa";
+import '../Css/Profil.css';
+import logo from '../assets/logo2.png';
 
 // Header Component
-const Header = () => {
+const Header = ({ toggleDarkMode, isDarkMode }) => {
     return (
-        <header className="header">
+        <header className={`header ${isDarkMode ? 'dark' : ''}`}>
             <div className="logo">
-                <span className="logo-icon">C</span>
+                <img src={logo} alt="Logo" className="logo-image" /> {/* Updated logo */}
             </div>
             <div className="search-bar">
                 <input type="text" placeholder="Search..." />
                 <button className="search-button">🔍</button>
             </div>
             <div className="user-options">
-                <FaUserCircle className="profile-icon" />
-                <button className="dark-mode-button">🌙</button>
+                <a href="/home"> <FaArrowLeft className="profile-icon"> </FaArrowLeft> </a>
+                <button className="dark-mode-button" onClick={toggleDarkMode}>
+                    {isDarkMode ? '☀️' : '🌙'}
+                </button>
             </div>
         </header>
     );
 };
 
+
 // UserProfile Component
-const UserProfile = () => {
+const UserProfile = ({ isDarkMode }) => {
     // Static data for demonstration purposes
     const reports = [
         { id: 1, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' },
         { id: 2, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' },
         { id: 3, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' },
-        { id: 4, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' }
+        { id: 4, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' },
+        { id: 5, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' },
+        { id: 6, title: 'Tag signalé', description: 'Graffiti "Skibidi" signalé 68 rue Gignac', time: 'la semaine dernière' }
     ];
 
     return (
-        <div className="profile-section">
+        <div className={`profile-section ${isDarkMode ? 'dark' : ''}`}>
             <div className="profile-header">
-                <FaUserCircle className="profile-avatar" />
-                <h2>John Brown</h2>
-                <p>he/him</p>
+                <div className="profile-picture">
+                    <img src="https://i.imgur.com/rfehWBZ.png" alt="Profile" className="profile-avatar-img" />
+                </div>
+                <div className="profile-info">
+                    <h2>John Brown</h2>
+                    <p>he/him</p>
+                </div>
             </div>
+            <div className="profile-divider"></div> {/* Stylish line */}
             <div className="report-list">
-                <h3>Tout vos signalement :</h3>
+                <h3>Tous vos signalements :</h3>
                 <div className="reports">
                     {reports.map(report => (
                         <div className="report-item" key={report.id}>
@@ -52,16 +64,15 @@ const UserProfile = () => {
                         </div>
                     ))}
                 </div>
-                <button className="view-more-button">Voir plus</button>
             </div>
         </div>
     );
 };
 
 // Footer Component
-const Footer = () => {
+const Footer = ({ isDarkMode }) => {
     return (
-        <footer className="footer">
+        <footer className={`footer ${isDarkMode ? 'dark' : ''}`}>
             <nav>
                 <ul className="footer-links">
                     <li><a href="/">Accueil</a></li>
@@ -72,20 +83,25 @@ const Footer = () => {
                     <li><a href="/">CGU</a></li>
                 </ul>
             </nav>
-            <p>&copy; 2024 - Carte interactive</p>
         </footer>
     );
 };
 
 // Assembled ProfilePage Component
 const ProfilePage = () => {
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+
     return (
-        <div className="profile-page">
-            <Header />
+        <div className={`profile-page ${isDarkMode ? 'dark' : ''}`}>
+            <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
             <main>
-                <UserProfile />
+                <UserProfile isDarkMode={isDarkMode} />
             </main>
-            <Footer />
+            <Footer isDarkMode={isDarkMode} />
         </div>
     );
 };

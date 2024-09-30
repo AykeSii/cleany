@@ -1,24 +1,49 @@
-# Logs
-logs
-*.log
+# Fichiers générés par le système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Fichiers et dossiers liés à l'environnement de développement
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers et dossiers liés à Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Fichiers et dossiers liés à Node.js
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Fichiers de logs
+*.log
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Fichiers de base de données
+*.sqlite
+
+# Dossiers temporaires
+tmp/
+temp/
+
+# Fichiers compilés
+*.out
+*.o
+*.so
+
+# Configuration spécifique à l'IDE
+*.iml
+
+# Clés SSH ou fichiers sensibles
+*.pem
+*.key

@@ -15,7 +15,7 @@ const Login = () => {
         // Vérification si le prénom, le nom et la case "Je ne suis pas un robot" sont remplis
         if (firstName && lastName && isHuman) {
             localStorage.setItem('user', JSON.stringify({ firstName, lastName }));
-            navigate('/'); // Redirection vers la page d'accueil
+            navigate('/home'); // Redirection vers la page d'accueil
         } else if (!isHuman) {
             setError('Veuillez confirmer que vous n\'êtes pas un robot.');
         } else {
@@ -30,10 +30,11 @@ const Login = () => {
     return (
         <div className="login-container">
             <form onSubmit={handleSubmit} className="login-form">
-                <h2>Login</h2>
+                <img src="/assets/moon.png" alt="Sprinkle" className="moon-image" />
+                <h2>CONNEXION</h2>
                 {error && <p className="error-message">{error}</p>}
                 <div className="form-field">
-                    <label>Nom d’utilisateur / Adresse mail:</label>
+                    <label>Nom d’utilisateur / Adresse mail :</label>
                     <input
                         type="text"
                         value={firstName}
@@ -41,14 +42,14 @@ const Login = () => {
                     />
                 </div>
                 <div className="form-field">
-                    <label>Mot de passe:</label>
+                    <label>Mot de passe :</label>
                     <input
                         type="password"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
                     />
                 </div>
-                <div className="form-field">
+                <div className="form-field2">
                     <input
                         type="checkbox"
                         checked={isHuman}
@@ -59,7 +60,7 @@ const Login = () => {
                 <button type="submit">Log In</button>
                 <div className="signup-text">
                     <span>Pas encore de compte ? </span>
-                    <a href="/signup" className="signup-link">S'inscrire</a>
+                    <a href="/register" className="signup-link">S'inscrire</a>
                 </div>
             </form>
         </div>

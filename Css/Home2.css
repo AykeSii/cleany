@@ -1,58 +1,125 @@
 /* Reset */
 * {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* Body Styling */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     color: #333;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+input {
+    width: auto;
 }
 
 /* Header Styling */
 header {
     background-color: #007bff;
     color: white;
-    padding: 15px 30px;
+    padding: 5px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 5rem;
+}
+
+body.dark-mode header {
+    background-color: #0056b3;
 }
 
 header h1 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
 }
 
-.header-right {
+/* Header right and left */
+.header-right, .header-left {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left {
+    flex-direction: row-reverse;
+    gap: 1rem;
+}
+
+.header-left img {
+    width: 2rem;
+}
+
+.regroup-side-map {
+    display: flex;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
     text-wrap: nowrap;
+}
+
+.regroup-check-toilette {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.regroup-signalement {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.description, .latitude, .longitude {
+    display: flex;
+    gap: 1rem;
+}
+
+.button_signaler {
+    color: #0056b3;
+}
+
+.button_signaler:hover {
+    background-color: #0056b3;
+    color: white;
 }
 
 /* Buttons Styling */
 button {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border: none;
-    border-radius: 30px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
+    border-radius: 4px;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
 }
 
 .login-button {
-    background-color: white;
-    color: #007bff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    text-wrap: nowrap;
 }
 
 .signup-button {
-    background-color: #ffc107;
-    color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    color: #007bff;
 }
 
 .login-button:hover, .signup-button:hover {
@@ -61,67 +128,139 @@ button {
     transform: translateY(-2px);
 }
 
-.signup-button:hover {
-    background-color: #e0a800;
+body.dark-mode .login-button {
+    color: #007bff;
+    border-color: #007bff;
 }
 
-button:active {
-    transform: translateY(0px);
+body.dark-mode .signup-button {
+    background-color: #333;
+    color: white;
+}
+
+.login-button:hover, .signup-button:hover {
+    background-color: #004494;
 }
 
 /* Sidebar Styling */
 .sidebar {
     padding: 20px;
-    background-color: white;
-    width: 280px;
-    float: left;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 30rem;
     margin: 20px;
-    position: sticky;
-    top: 0;
+    background-color: white;
+}
+
+body.dark-mode .sidebar {
+    background-color: #333;
+    color: white;
 }
 
 .sidebar h3 {
-    margin-bottom: 20px;
     font-size: 18px;
-    font-weight: 600;
-    color: #007bff;
+    margin-bottom: 20px;
+    color: #333;
 }
 
+body.dark-mode .sidebar h3 {
+    color: white;
+}
+
+/* Checkbox Section Styling */
+.sidebar h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    padding-left: 10px; /* Add padding for indentation */
+}
+
+/* Adding bullet point before the heading */
+.sidebar h3::before {
+    content: '•';
+    margin-right: 8px;
+    color: black;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+/* Checkbox Styling */
 .options {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Space between checkboxes */
+}
+
+.options input[type="checkbox"] {
+    transform: scale(1.1); /* Slightly larger checkboxes */
+    cursor: pointer;
 }
 
 .options label {
     font-size: 16px;
-    color: #555;
-    margin-left: 8px;
+    color: #333;
+    margin-left: 10px;
 }
 
-.options input[type="checkbox"] {
-    transform: scale(1.2);
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.sidebar input[type="checkbox"]:checked {
+body.dark-mode .options input[type="checkbox"]:checked {
     accent-color: #007bff;
 }
 
-.sidebar input[type="checkbox"]:hover {
-    transform: scale(1.3);
-}
-
-/* Map and Content Area */
+/* Map Styling */
 .content {
-    margin-left: 320px;
-    padding: 20px;
+    margin: 20px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .leaflet-container {
-    border-radius: 10px;
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .leaflet-container {
+    box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Report Form */
+.report-form {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+body.dark-mode .report-form {
+    background-color: #333;
+    color: white;
+}
+
+.report-form h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+body.dark-mode .report-form h3 {
+    color: #ffc107;
+}
+
+.report-form textarea,
+.report-form input[type="number"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black;
+}
+
+body.dark-mode .report-form textarea,
+body.dark-mode .report-form input[type="number"] {
+    background-color: #333;
+    color: rgb(0, 0, 0);
+    border: 1px solid #555;
 }
 
 /* Footer Styling */
@@ -129,83 +268,39 @@ footer {
     background-color: #007bff;
     color: white;
     text-align: center;
-    padding: 15px;
-    bottom: 0;
+    padding: 20px;
+    position: relative;
     width: 100%;
-    font-size: 14px;
-    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode footer {
+    background-color: #0056b3;
 }
 
 footer nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 30px;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 
-footer nav ul li {
-    cursor: pointer;
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
     transition: color 0.3s ease;
 }
 
-footer nav ul li:hover {
+footer nav ul li a:hover {
     color: #ffc107;
 }
 
-/* Hover Effect for Sidebar Inputs */
-.options input[type="checkbox"]:hover {
-    background-color: #f0f0f0;
+body.dark-mode footer nav ul li a {
+    color: #ccc;
 }
 
-/* Ajoutez ces styles à votre fichier Home.css */
-
-/* Styles pour le formulaire de signalement */
-.report-form {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.report-form h3 {
-    margin-bottom: 10px;
-    color: #007bff;
-}
-
-.report-form label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-.report-form textarea,
-.report-form input[type="number"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.report-form button {
+footer p {
+    font-size: 12px;
     margin-top: 10px;
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.report-form button:hover {
-    background-color: #0056b3;
-}
-
-.report-form button[type="button"] {
-    background-color: #f44336; /* Couleur pour le bouton Annuler */
-}
-
-.report-form button[type="button"]:hover {
-    background-color: #d32f2f; /* Couleur pour le bouton Annuler au survol */
 }

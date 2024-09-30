@@ -22,7 +22,7 @@ const Register = () => {
                 password,
             };
             localStorage.setItem('user', JSON.stringify(userData));
-            navigate('/'); // Redirection vers la page d'accueil après l'inscription
+            navigate('/home'); // Redirection vers la page d'accueil après l'inscription
         } else {
             setError('Veuillez remplir tous les champs.');
         }
@@ -31,7 +31,9 @@ const Register = () => {
     return (
         <div className="login-container">
             <form onSubmit={handleSubmit} className="login-form">
+                <div className='register'>
                 <h2>Register</h2>
+                </div>
                 {error && <p className="error-message">{error}</p>}
                 <div className="form-field">
                     <label>Prénom:</label>
