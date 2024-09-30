@@ -30,6 +30,7 @@ header h1 {
 .header-right {
     display: flex;
     gap: 15px;
+    text-wrap: nowrap;
 }
 
 /* Buttons Styling */

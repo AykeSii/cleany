@@ -1,0 +1,209 @@
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Profile Page Styling */
+.profile-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.search-bar button {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.user-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-icon {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.dark-mode-button {
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+}
+
+/* Profile Section Styling */
+.profile-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+}
+
+.profile-header {
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    font-size: 80px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Report List Styling */
+.report-list {
+    text-align: left;
+}
+
+.report-list h3 {
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.reports {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.report-icon {
+    font-size: 30px;
+    margin-right: 15px;
+}
+
+.report-content h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.report-content p {
+    color: #555;
+    font-size: 16px;
+}
+
+.report-time {
+    margin-left: auto;
+    color: #999;
+    font-size: 14px;
+}
+
+/* View More Button */
+.view-more-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-more-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer nav ul li {
+    display: inline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer nav ul li:hover {
+    color: #ffc107;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ffc107;
+}

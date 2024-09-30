@@ -26,10 +26,12 @@ const Home = () => {
     const [compostData, setCompostData] = useState([]);
     const [collecteData, setCollecteData] = useState([]);
 
+    const [isDarkMode, setIsDarkMode] = useState(false); // Ajout de l'état pour le mode sombre
+
     // État pour signaler les déchets
     const [reportingData, setReportingData] = useState({ description: '', location: { lat: '', lng: '' } });
-    const [reportedPoint, setReportedPoint] = useState(null); // Nouvel état pour le point signalé
-    const [showReportForm, setShowReportForm] = useState(true); // Toujours afficher le formulaire
+    const [reportedPoint, setReportedPoint] = useState(null);
+    const [showReportForm, setShowReportForm] = useState(true);
 
     const navigate = useNavigate();
 
@@ -88,10 +90,16 @@ const Home = () => {
         setReportedPoint({
             lat: parseFloat(reportingData.location.lat),
             lng: parseFloat(reportingData.location.lng),
-        }); // Mettez à jour le point signalé avec les coordonnées
+        });
         alert('Merci pour votre signalement!');
-        setShowReportForm(false); // Cacher le formulaire après soumission
+        setShowReportForm(false);
         setReportingData({ description: '', location: { lat: '', lng: '' } });
+    };
+
+    // Basculer entre les modes clair et sombre
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle('dark-mode', !isDarkMode);
     };
 
     return (
@@ -101,6 +109,9 @@ const Home = () => {
                     <h1>Carte Interactive du 16ème Arrondissement de Paris</h1>
                 </div>
                 <div className="header-right">
+                    <button onClick={toggleDarkMode}>
+                        {isDarkMode ? 'Mode Clair' : 'Mode Sombre'}
+                    </button>
                     <button
                         className="login-button"
                         onClick={() => navigate('/login')}
@@ -115,6 +126,8 @@ const Home = () => {
                     </button>
                 </div>
             </header>
+
+        <div className='regroup-side-map'>
 
             <div className="sidebar">
                 <h3>Que cherchez-vous ?</h3>
@@ -207,7 +220,9 @@ const Home = () => {
                     )}
                 </MapContainer>
 
-                {/* Formulaire de signalement, affiché en permanence */}
+        </div>
+
+                {/* Formulaire de signalement */}
                 <div className="report-form">
                     <h3>Signaler un amas de déchets</h3>
                     <form onSubmit={handleSubmit}>
@@ -243,25 +258,10 @@ const Home = () => {
                                 required
                             />
                         </div>
-                        <button type="submit">Soumettre</button>
-                        <button type="button" onClick={() => setShowReportForm(false)}>Annuler</button>
+                        <button type="submit">Signaler</button>
                     </form>
                 </div>
             </div>
-
-            <footer>
-                <nav>
-                    <ul className="footer-links">
-                        <li><a href="/paris">Accueil</a></li>
-                        <li><a href="/marseille">Actualité</a></li>
-                        <li><a href="/bordeaux">A Propos</a></li>
-                        <li><a href="/porto-vecchio">Contact</a></li>
-                        <li><a href="/porto-vecchio">Mention Légales</a></li>
-                        <li><a href="/porto-vecchio">CGU</a></li>
-                    </ul>
-                </nav>
-                <p>&copy; 2024 - Carte interactive</p>
-            </footer>
         </div>
     );
 };

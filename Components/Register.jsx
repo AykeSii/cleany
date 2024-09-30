@@ -22,7 +22,7 @@ const Register = () => {
                 password,
             };
             localStorage.setItem('user', JSON.stringify(userData));
-            navigate('/home'); // Redirection vers la page d'accueil après l'inscription
+            navigate('/'); // Redirection vers la page d'accueil après l'inscription
         } else {
             setError('Veuillez remplir tous les champs.');
         }

@@ -15,7 +15,7 @@ const Login = () => {
         // Vérification si le prénom, le nom et la case "Je ne suis pas un robot" sont remplis
         if (firstName && lastName && isHuman) {
             localStorage.setItem('user', JSON.stringify({ firstName, lastName }));
-            navigate('/home'); // Redirection vers la page d'accueil
+            navigate('/'); // Redirection vers la page d'accueil
         } else if (!isHuman) {
             setError('Veuillez confirmer que vous n\'êtes pas un robot.');
         } else {
