@@ -1,0 +1,171 @@
+/* Reset */
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header Styling */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-right {
+    display: flex;
+    gap: 15px;
+}
+
+/* Buttons Styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-button {
+    background-color: white;
+    color: #007bff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-button {
+    background-color: #ffc107;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:hover, .signup-button:hover {
+    background-color: #0056b3;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.signup-button:hover {
+    background-color: #e0a800;
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    padding: 20px;
+    background-color: white;
+    width: 280px;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.options label {
+    font-size: 16px;
+    color: #555;
+    margin-left: 8px;
+}
+
+.options input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.sidebar input[type="checkbox"]:checked {
+    accent-color: #007bff;
+}
+
+.sidebar input[type="checkbox"]:hover {
+    transform: scale(1.3);
+}
+
+/* Map and Content Area */
+.content {
+    margin-left: 320px;
+    padding: 20px;
+}
+
+.leaflet-container {
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+    font-size: 14px;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 50px;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px; /* Espace entre les liens */
+    padding: 0;
+    margin: 0;
+}
+
+footer nav ul li {
+    display: inline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+footer nav ul li:hover {
+    color: #ffc107;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffc107;
+}
+
+/* Hover Effect for Sidebar Inputs */
+.options input[type="checkbox"]:hover {
+    background-color: #f0f0f0;
+}

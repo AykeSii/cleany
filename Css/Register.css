@@ -1,0 +1,81 @@
+/* Register.css */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../assets/fondbleu.png'); /* Assure-toi que le chemin est correct */
+    background-size: cover;
+    background-position: center;
+}
+
+.login-form {
+    padding: 40px;
+    border-radius: 15px; /* Bord arrondis pour le style */
+    text-align: center;
+    width: 350px; /* Légèrement plus large */
+}
+
+.form-field {
+    margin-bottom: 20px; /* Espacement entre les champs */
+}
+
+input {
+    padding: 12px;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 10px; /* Arrondi des champs de formulaire */
+    background: none;
+}
+
+button {
+    padding: 12px;
+    background: none;
+    border: 2px solid white;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 107%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px; /* Plus d'espace sous le titre */
+}
+
+.signup-text {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.signup-link {
+    color: #333;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.signup-link:hover {
+    text-decoration: none;
+}
